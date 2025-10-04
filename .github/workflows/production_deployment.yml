@@ -3,14 +3,13 @@ on:
   push:
     branches: [main]
 jobs:
-
   converge:
     name: Converge
     runs-on: ubuntu-latest
     steps:
 
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -21,4 +20,3 @@ jobs:
           kube-config-base64-data: ${{ secrets.KUBE_CONFIG_BASE64_DATA }}
         env:
           WERF_SET_ENV_URL: "envUrl=http://habrapp.example.com"
-
